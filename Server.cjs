@@ -3,7 +3,6 @@ const express = require('express')
 const mongoose = require('mongoose')
 
 const {Restaurants} = require('./Schema.cjs')
-
 const app = express()
 app.use(bodyParser.json())
 const connectTODb =  async function connectTODb(){
@@ -42,6 +41,23 @@ app.get('/get-restaurents-details',async function(request,response){
     }
     catch(error)
     {
-        console.log("Error")
+        response.status(500).json({
+            "status": "failure",
+            "message" : "could not Identify",
+            "error" : "error"
+        })
+    }
+})
+
+app.delete('/delete-restaurents-details/:id',async function(request,response){
+    try{
+       await Restaurants.findByIdAndDelete(request.params.id)
+       response.status(200).json({"message":"restaurant deleted"})
+    }catch(error){
+        response.status(500).json({
+            "status": "failure",
+            "message" : "could not Identify",
+            "error" : "error"
+        })
     }
 })
