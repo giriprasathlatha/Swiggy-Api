@@ -25,6 +25,7 @@ app.post('/add-restaurents', async function(request,res){
             "avgRating" : request.body.avgRating,
             "cuisines" : request.body.cuisines,
             "costForTwo" : request.body.costForTwo,
+            "imageLink":request.body.imageLink,
             "name" : request.body.name
         })
         res.json({"status":"success"})
