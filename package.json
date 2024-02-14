@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"npx nodemon Server.cjs",
+    "start":"node Server.cjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
